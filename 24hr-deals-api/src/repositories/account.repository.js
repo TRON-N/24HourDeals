@@ -1,5 +1,7 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+// const mongoose = require('mongoose');
+class Schema {
+    constructor(list) {}
+}
 
 // Define schema
 let accountSchema = new Schema({
@@ -25,8 +27,35 @@ let accountSchema = new Schema({
     }
 });
 
+class Model {
+    constructor() { }
+    create(account) {
+            console.log("AccountModel.create");
+            return new Promise ((resolve, reject) => (resolve("accountsssss: " + JSON.stringify(account))));
+    }
+    find() {
+        console.log("AccountModel.find");
+        return {exec: function() {return new Promise ((resolve, reject) => (resolve("findssss")));}};
+    }
+    deleteOne() {
+        console.log("AccountModel.deleteOne");
+        return {exec: function() { return new Promise ((resolve, reject) => (resolve("deleteSsss")));}};
+    }
+    previousTransactions() { console.log("AccountModel.previousTransactions"); }
+    findById(id) {
+        console.log("AccountModel.findById");
+        return {exec: function() {return new Promise ((resolve, reject) => (resolve("findIdssss " + id)));}};
+    }
+
+    // findById(id, callback) {
+    //     callback(null, {save: function(account) {console.log(account)}})
+    // }
+
+    findByIdAndUpdate() { console.log("AccountModel.findByIdAndUpdate"); }
+}
+
 // Compile model
-let AccountModel = mongoose.model('Account', accountSchema);
+let AccountModel = new Model();
 
 
 const accountRepo = {}

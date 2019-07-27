@@ -1,5 +1,9 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+// const mongoose = require('mongoose');
+// const Schema = mongoose.Schema;
+
+class Schema {
+    constructor(list) {}
+}
 
 // Define schema
 let productSchema = new Schema ({
@@ -26,8 +30,28 @@ let productSchema = new Schema ({
 
 });
 
+class Model {
+    constructor() { }
+    find() {
+        console.log("productModel.find");
+        return {exec: function() {return new Promise ((resolve, reject) => (resolve("productModel.find")));}};
+    }
+    create(product) {
+        console.log("productModel.create");
+        return {exec: function() {return new Promise ((resolve, reject) => (resolve("productModel.create: " + JSON.stringify(product))));}};
+    }
+    findById(id) {
+        console.log("productModel.findById");
+        return {exec: function() {return new Promise ((resolve, reject) => (resolve("productModel.findById: " + id)));}};
+    }
+    findByIdAndRemove() {
+        console.log("productModel.findByIdAndRemove");
+        return {exec: function() {return new Promise ((resolve, reject) => (resolve("productModel.findByIdAndRemove")));}};
+    }
+}
 
-let productModel = mongoose.model('Product', productSchema);
+
+let productModel = new Model();
 
 class ProductRepo {
     constructor(){
@@ -43,18 +67,10 @@ class ProductRepo {
     };
 
     insertProduct(product) {
-        // let productDoc = new productModel(product);
-        
-        return productModel.create(product);
-
-        // return productDoc.save((err, productDoc)=>{
-        //     if(err) return console.error(err);
-        //     console.log('Saved: ' + productDoc);
-        // });
+        return productModel.create(product).exec();
     };
 
     updateProduct(update) {
-        // Use traditional findById for full-fledged validations
         productModel.findById(update.id, function(err, productDoc) {
             if (err) return console.error(err);
             else {

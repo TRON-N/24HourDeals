@@ -1,0 +1,241 @@
+{
+	"info": {
+		"_postman_id": "037b6cbf-721c-4989-a3cc-f9095c8e3173",
+		"name": "dailyDealsApiTests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get all accounts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/accounts",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get accounts by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "hello",
+							"value": "world",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5000/accounts/100",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"accounts",
+						"100"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "HELLO",
+							"value": "WORLD",
+							"type": "text"
+						},
+						{
+							"key": "HELLO",
+							"value": "MY FRIEND",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5000/accounts",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/products",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get products by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/products/10",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"products",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/products",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/categories",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"categories"
+					]
+				},
+				"description": "find categories"
+			},
+			"response": []
+		},
+		{
+			"name": "get categories by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/categories/10",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"categories",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create categories",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/categories",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update categories",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/categories/10",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"categories",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete categories",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/categories/10",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"categories",
+						"10"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

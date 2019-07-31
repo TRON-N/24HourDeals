@@ -15,6 +15,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { BootstrapModalModule } from 'ng6-bootstrap-modal';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 import { CountDown } from "ng2-date-countdown";
 import { LandingPageComponent } from "./components/home-page/home-page.component";
@@ -26,6 +28,10 @@ import { CheckoutItemComponent } from "./components/checkout-item/checkout-item.
 import { MatRadioModule } from "@angular/material/radio";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { LoginPageComponent } from './components/login-page/login-page.component';
+import { SignupPageComponent } from './components/signup-page/signup-page.component';
+import { ChangePasswordPageComponent } from './components/change-password-page/change-password-page.component';
+import { AccountPageComponent } from './components/account-page/account-page.component';
 import { ProductComponent } from "./components/product/product.component";
 import { BasketPageComponent } from "./components/basket-page/basket-page.component";
 import { TransactionHistoryPageComponent } from "./components/transaction-history-page/transaction-history-page.component";
@@ -40,6 +46,10 @@ import { TransactionHistoryItemComponent } from "./components/transaction-histor
     BasketItemComponent,
     CheckoutPageComponent,
     CheckoutItemComponent,
+    LoginPageComponent,
+    SignupPageComponent,
+    ChangePasswordPageComponent,
+    AccountPageComponent,
     ProductComponent,
     TransactionHistoryPageComponent,
     TransactionHistoryItemComponent
@@ -58,6 +68,7 @@ import { TransactionHistoryItemComponent } from "./components/transaction-histor
     MatCheckboxModule,
     MatInputModule,
     MatRadioModule,
+    BootstrapModalModule,
     FormsModule,
     ReactiveFormsModule,
     MatSnackBarModule,

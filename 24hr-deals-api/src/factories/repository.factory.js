@@ -1,8 +1,8 @@
 // const mongoose = require('mongoose');
 
 // server = '127.0.0.1:27017';
-const server = 'mongo:27017';
-const database = '24hr-deals';  
+// const server = 'mongo:27017';
+// const database = '24hr-deals';  
 
 const repoFactory = {}; 
 //mongoose.set('useFindAndModify', false);

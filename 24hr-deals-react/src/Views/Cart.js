@@ -2,34 +2,27 @@ import React, { Component } from "react";
 import { Card, List, Avatar, Button } from "antd";
 
 export default class Cart extends Component {
+  removeFromCart = id => {
+    this.props.removeFromCart(id);
+  };
   render() {
-    const data = [
-      {
-        title: "Ant Design Title 1"
-      },
-      {
-        title: "Ant Design Title 2"
-      },
-      {
-        title: "Ant Design Title 3"
-      },
-      {
-        title: "Ant Design Title 4"
-      }
-    ];
     return (
       <Card>
         <List
           itemLayout="horizontal"
-          dataSource={data}
+          dataSource={this.props.cart}
           renderItem={item => (
-            <List.Item actions={[<Button>Remove</Button>]}>
+            <List.Item
+              actions={[
+                <Button onClick={() => this.removeFromCart(item.id)}>
+                  Remove
+                </Button>
+              ]}
+            >
               <List.Item.Meta
-                avatar={
-                  <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-                }
-                title={<a href="https://ant.design">{item.title}</a>}
-                description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+                avatar={<Avatar src={item.avatar} />}
+                title={item.title}
+                description={item.desc}
               />
             </List.Item>
           )}

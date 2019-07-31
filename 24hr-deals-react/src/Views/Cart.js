@@ -20,7 +20,7 @@ export default class Cart extends Component {
               ]}
             >
               <List.Item.Meta
-                avatar={<Avatar src={item.avatar} />}
+                avatar={<Avatar shape="square" size={64} src={item.avatar} />}
                 title={item.title}
                 description={item.desc}
               />

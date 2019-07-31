@@ -19,10 +19,10 @@ export default class App extends Component {
       },
       {
         id: 2,
-        title: "there",
+        title: "More Shoes",
         desc: "Distint World",
         avatar:
-          "https://revoguewatch.com/wp-content/uploads/2018/07/2Q4A0750-min.jpg",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdhIVnfYQHFIx5utaNEnDgdtlcvIQRYKufVwiKPx3k3Nff3tt1",
         price: 100
       },
       {
@@ -35,18 +35,18 @@ export default class App extends Component {
       },
       {
         id: 4,
-        title: "test",
+        title: "Man Purse",
         desc: "Fisher man's greatest love",
         avatar:
-          "https://revoguewatch.com/wp-content/uploads/2018/07/2Q4A0750-min.jpg",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSphUAAQgwd9bZCexXJC6YHJXDTO_LQHK9n2htgt-RXl_NB_Jsn",
         price: 100
       },
       {
         id: 5,
-        title: "test",
-        desc: "Fisher man's greatest love",
+        title: "Burger",
+        desc: "Best in the city",
         avatar:
-          "https://revoguewatch.com/wp-content/uploads/2018/07/2Q4A0750-min.jpg",
+          "https://amp.businessinsider.com/images/5c420211b492cb5cdb1d88d4-750-501.jpg",
         price: 100
       }
     ],

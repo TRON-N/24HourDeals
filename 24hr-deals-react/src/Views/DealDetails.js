@@ -3,7 +3,7 @@ import { Card, Row, Col, Statistic } from "antd";
 import dealService from "../Services/DealsService"
 
 const { Countdown } = Statistic;
-const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2;
+
 
 function onFinish() {
   console.log('finished!');
@@ -52,7 +52,7 @@ export default class DealDetails extends Component {
           <Col span={18}>
             <Card>
               <div style={{paddingLeft: "2em"}}>
-            <Countdown title="Time Remaining" value={deadline} valueStyle={{ color: "Red"}} onFinish={onFinish}/>             
+            <Countdown title="Time Remaining" value={this.state.deal.DealEndDate} valueStyle={{ color: "Red"}} onFinish={onFinish}/>             
             </div>
               <Row>
                 <Col span={10}>

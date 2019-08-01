@@ -27,7 +27,7 @@ DELIMITER ;
 CREATE VIEW vTransactionHistory AS SELECT `user`.Id As UserId, `transaction`.Id AS TransactionId,
 	`user`.FirstName, `user`.LastName,
     product.ProductName, category.CategoryName,
-    product.Price, deal.Discount, calcDiscountedPrice(product.Price, deal.Discount) AS TransactionAmount
+    product.Price, product.ProductImage, deal.Discount, calcDiscountedPrice(product.Price, deal.Discount) AS TransactionAmount
 From transactionDeal
 LEFT JOIN `transaction` ON
 	transactionDeal.TransactionId = `transaction`.Id

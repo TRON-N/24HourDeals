@@ -12,7 +12,6 @@ class GenericController {
     
     findAll (req, res) {
         this.DatabaseConnection.doQuery(`SELECT * FROM ${this.tableName}`, []).then((results, fields) => {
-            console.log(`SELECT * FROM ${this.tableName}`)
             if (results.length){
                 res.status(200).send({
                     data: results

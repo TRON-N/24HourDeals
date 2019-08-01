@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "antd": "^3.20.7",
+    "api": "file:../24hr-deals-api",
     "axios": "^0.19.0",
     "cross-env": "^5.2.0",
     "react": "^16.8.6",

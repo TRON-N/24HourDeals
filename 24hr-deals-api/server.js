@@ -5,12 +5,15 @@ const DatabaseConnection = require('./database/database.connection');
 const transactionSpecificRoutes = require('./routes/transactionSpecific.routes');
 const dealSpecificRoutes = require('./routes/dealSpecific.routes');
 const categorySpecificRoutes = require('./routes/categorySpecific.routes');
+const cors = require('cors')
 
 const port = 3000;
 
 const app = express();
 
+
 app.use(bodyParser.json());
+app.use(cors());
 
 app.get('/', (req, res) => {
     res.json({"message": "the api works!"});

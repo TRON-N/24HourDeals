@@ -37,7 +37,6 @@ export default class DealDetails extends Component {
                   <Card>Deal End date</Card>
                 </Col>
                 <Col span={14}>
-                  <Card>{new Date().toString()}</Card>
                 </Col>
               </Row>
             </Card>

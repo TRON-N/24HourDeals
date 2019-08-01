@@ -19,6 +19,8 @@ class GenericController {
             }else{
                 res.status(204).send()
             }
+        }).catch(reject=>{
+            res.status(500).json({ error: reject.toString() });
         });
     }
     findOne (req, res) {
@@ -30,6 +32,8 @@ class GenericController {
             }else{
                 res.status(204).send()
             }
+        }).catch(reject=>{
+            res.status(500).json({ error: reject.toString() });
         });
     }
     update (req, res) {
@@ -44,6 +48,8 @@ class GenericController {
             }else{
                 res.status(404).send();
             }
+        }).catch(reject=>{
+            res.status(500).json({ error: reject.toString() });
         });
     }
 }

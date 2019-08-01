@@ -25,6 +25,8 @@ class ProductController extends GenericController {
             res.status(400).send({
                 data: results
             });
+        }).catch(reject=>{
+            res.status(500).json({ error: reject.toString() });
         });
     }
 
@@ -49,6 +51,8 @@ class ProductController extends GenericController {
             res.status(400).send({
                 data: results
             });
+        }).catch(reject=>{
+            res.status(500).json({ error: reject.toString() });
         });
     }
 }

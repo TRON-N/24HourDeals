@@ -21,7 +21,9 @@ class DealController extends GenericController {
         ).then((results, fields) => {
             res.status(400).send({
                 data: results
-            });
+            }).catch(reject=>{
+                res.status(500).json({ error: reject.toString() });
+            });;
         });
     }
 
@@ -44,6 +46,8 @@ class DealController extends GenericController {
             res.status(400).send({
                 data: results
             });
+        }).catch(reject=>{
+            res.status(500).json({ error: reject.toString() });
         });
     }
 

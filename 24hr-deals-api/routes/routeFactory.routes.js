@@ -4,40 +4,19 @@ rootFactory = (app, dataBaseConnector, routeName) => {
     const controller = new ControllerClass(dataBaseConnector);
 
     app.post(`/${routeName}`, (req, res) => {
-        try{
-            controller.create(req, res);
-        }catch(err){
-            res.status(500).json({ error: err.toString() });
-        } 
+        controller.create(req, res);
     });
     app.get(`/${routeName}`, (req, res) => {
-        try{
-            controller.findAll(req, res);
-        }catch(err){
-            res.status(500).json({ error: err.toString() });
-        } 
+        controller.findAll(req, res);
     });
     app.get(`/${routeName}/:id`, (req, res, next) => {
-        try{
-            controller.findOne(req, res);
-        }catch(err){
-            res.status(500).json({ error: err.toString() });
-        }
+        controller.findOne(req, res);
     });
     app.put(`/${routeName}/:id`, (req, res) => {
-        try{
-            controller.update(req, res);
-        }catch(err){
-            res.status(500).json({ error: err.toString() });
-        }
-         
+        controller.update(req, res);      
     });
     app.delete(`/${routeName}/:id`, (req, res) => {
-        try{
-            controller.delete(req, res);
-        }catch(err){
-            res.status(500).json({ error: err.toString() });
-        }
+        controller.delete(req, res);
     });
 }
 

@@ -14,6 +14,8 @@ class TransactionController extends GenericController {
             res.status(400).send({
                 data: results
             });
+        }).catch(reject=>{
+            res.status(500).json({ error: reject.toString() });
         });
     }
 
@@ -29,17 +31,22 @@ class TransactionController extends GenericController {
             res.status(400).send({
                 data: results
             });
+        }).catch(reject=>{
+            res.status(500).json({ error: reject.toString() });
         });
     }
 
     addDeal(req, res) {
         this.DatabaseConnection.doQuery(`INSERT INTO TransactionDeal (TransactionId, DealId) VALUES (?, ?)`,
-        [req.params.transactionId, req.body.dealId]
+        [req.params.transactionId, req.body.dealId],
         ).then((results, fields) => {
             res.status(400).send({
                 data: results
             });
+        }).catch(reject=>{
+            res.status(500).json({ error: reject.toString() });
         });
+        
     }
 
     removeDeal(req, res) {
@@ -49,6 +56,8 @@ class TransactionController extends GenericController {
             res.status(400).send({
                 data: results
             });
+        }).catch(reject=>{
+            res.status(500).json({ error: reject.toString() });
         });
     }
 }

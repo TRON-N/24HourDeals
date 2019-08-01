@@ -48,7 +48,35 @@ class DealController extends GenericController {
     }
 
     getProduct(req, res) {
-        res.status(200).send({message: "get product route works!"});
+        this.DatabaseConnection.doQuery(`call getDealInfoByDealId(?)`, [req.params.dealId]).then((results, fields) => {
+            if (results.length){
+                res.status(200).send({
+                    data: results
+                });
+            }else{
+                res.status(204).send()
+            }
+        });
+    }
+
+    getAllProductInfo(req, res) {
+        this.DatabaseConnection.doQuery(`SELECT
+        dl.Id DealId, dl.DealStartDate, dl.DealEndDate, dl.CreationDate, dl.Discount,
+        pd.ProductName, pd.ProductDescription, pd.StockQuantity, pd.Price, pd.ProductImage,
+        ct.CategoryName,
+        calcDiscountedPrice(pd.Price, dl.Discount) DiscountedPrice,
+        ct.CategoryName
+        from deal as dl
+        INNER JOIN  product as pd ON pd.Id = dl.ProductId
+        INNER JOIN category as ct ON ct.Id = pd.CategoryId`, []).then((results, fields) => {
+            if (results.length){
+                res.status(200).send({
+                    data: results
+                });
+            }else{
+                res.status(204).send()
+            }
+        });
     }
 }
 

@@ -51,6 +51,45 @@ class TransactionController extends GenericController {
             });
         });
     }
+
+    getUserTransactionHistory(userId, res) {
+        let data;
+        this.DatabaseConnection.doQuery(`SELECT * FROM vTransactionHistory WHERE UserId = ?`, [userId])
+        .then((results, fields) => {
+            res.status(200).send(results);
+        })
+        .catch((results) => {
+            res.status(500).send({error: 'oof',
+        description: results});
+        });
+        return data;
+    }
+
+    getTransactionOveriew(res) {
+        let data;
+        this.DatabaseConnection.doQuery(`SELECT * FROM vTransactionOverview`)
+        .then((results, fields) => {
+            res.status(200).send(results);
+        })
+        .catch((results) => {
+            res.status(500).send({error: 'oof',
+        description: results});
+        });
+        return data;
+    }
+
+    getUserTransactionOveriew(userId, res) {
+        let data;
+        this.DatabaseConnection.doQuery(`SELECT * FROM vTransactionOverview WHERE UserId = ?`, [userId])
+        .then((results, fields) => {
+            res.status(200).send(results);
+        })
+        .catch((results) => {
+            res.status(500).send({error: 'oof',
+        description: results});
+        });
+        return data;
+    }
 }
 
 module.exports = TransactionController;

@@ -31,6 +31,26 @@ class TransactionController extends GenericController {
             });
         });
     }
+
+    addDeal(req, res) {
+        this.DatabaseConnection.doQuery(`INSERT INTO TransactionDeal (TransactionId, DealId) VALUES (?, ?)`,
+        [req.params.transactionId, req.body.dealId]
+        ).then((results, fields) => {
+            res.status(400).send({
+                data: results
+            });
+        });
+    }
+
+    removeDeal(req, res) {
+        this.DatabaseConnection.doQuery(`DELETE FROM TransactionDeal WHERE TransactionId = ? AND DealId = ?`,
+        [req.params.transactionId, req.body.dealId]
+        ).then((results, fields) => {
+            res.status(400).send({
+                data: results
+            });
+        });
+    }
 }
 
 module.exports = TransactionController;

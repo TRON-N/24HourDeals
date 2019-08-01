@@ -1,34 +1,42 @@
 import React, { Component } from 'react'
-import { Card, List, Avatar, Button } from "antd";
-import ProfileImage from './ProfileImage';
+import { Card, List, Avatar, Button,Row, Col  } from "antd";
+
+const { Meta } = Card;
 
 export default class Profile extends Component {
-   profile= [{
+   profile= {
         id:1,
         title: "Ash Ketchum",
         avatar: "https://pbs.twimg.com/media/CXt6TRMWkAAYtlB.jpg",
         desc: "Trainer from Pallet Town"
-      }];
+      };
     render() {
         return (
             <Card>
-            <List
-              itemLayout="vertical"
-              dataSource={this.profile}
-              renderItem={item => (
-                <List.Item >
-                  <List.Item.Meta
-                    avatar={<Avatar shape="square" size={64} src={item.avatar} />}
-                    title={
-                      <h4 onClick={() => this.showDetails(item.id)}>
-                        {item.title}
-                      </h4>
-                    }
-                    description={item.desc}s
+            <Row>
+              <Col span={6}>
+                <Card
+                  hoverable
+                  style={{ maxWidth: "300px" }}
+                  cover={
+                    <img
+                      alt="example"
+                      style={{ maxHeight: "300px" }}
+                      src= {this.profile.avatar}
+                    />
+                  }
+                >
+                  <Meta
+                    title={this.profile.title}
                   />
-                </List.Item>
-              )}
-            />
+                </Card>
+              </Col>
+              <Col span={18}>
+                <Card>
+                  {this.profile.desc}
+                </Card>
+              </Col>
+            </Row>
           </Card>
         )
     }

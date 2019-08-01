@@ -35,8 +35,9 @@ export default class CDeals extends Component {
     message.error("Share functionality not yet available");
   };
 
-  componentDidMount = () => {
-  };
+  componentDidMount() {
+    this.update()
+  }
   update = () => {
     const catName = this.props.match.params.name;
     dealService.getDealsByCategory(catName, data => {
@@ -44,7 +45,6 @@ export default class CDeals extends Component {
     });
   };
   render() {
-    this.update()
     const deals = this.state.deals.map(deal => {
       return (
         <Col span={6} key={deal.DealId}>
@@ -55,6 +55,7 @@ export default class CDeals extends Component {
             cover={
               <img
                 alt="example"
+                style={{ objectFit: "cover", height: "30vh" }}
                 src={deal.ProductImage}
                 onClick={() => this.showDetails(deal.DealId)}
               />

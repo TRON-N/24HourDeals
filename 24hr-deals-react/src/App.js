@@ -5,7 +5,7 @@ import Deals from "./Views/Deals";
 import CDeals from "./Views/CDeals";
 import Cart from "./Views/Cart";
 import DealDetails from "./Views/DealDetails";
-import Profile from "./Components/Profile/Profile";
+import Profile from "./Views/Profile";
 import categories from "./Services/CategoriesService";
 import deal from "./Services/DealsService";
 
@@ -80,6 +80,7 @@ export default class App extends Component {
             path="/category/:name"
             render={props => (
               <CDeals
+                key={props.match.params.name}
                 {...props}
                 addToCart={this.addToCart}
               />

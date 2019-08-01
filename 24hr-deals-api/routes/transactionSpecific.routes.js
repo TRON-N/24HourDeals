@@ -7,6 +7,14 @@ transactionRoots = (app, dataBaseConnector) => {
         overview = controller.getUserTransactionHistory(req.params.userId, res);
     });
 
+    app.get(`/transactionOverview`, (req, res) => {
+        overview = controller.getTransactionOveriew(res);
+    });
+
+    app.get(`/user/:userId/transactionOverview`, (req, res) => {
+        overview = controller.getUserTransactionOveriew(req.params.userId, res);
+    });
+
     app.post(`/transaction/:transactionId/addDeal`, (req, res) => {
         controller.addDeal(req, res);
     });

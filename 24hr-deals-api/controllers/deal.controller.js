@@ -48,7 +48,15 @@ class DealController extends GenericController {
     }
 
     getProduct(req, res) {
-        res.status(200).send({message: "get product route works!"});
+        this.DatabaseConnection.doQuery(`call getDealInfoByDealId(?)`, [req.params.dealId]).then((results, fields) => {
+            if (results.length){
+                res.status(200).send({
+                    data: results
+                });
+            }else{
+                res.status(204).send()
+            }
+        });
     }
 }
 

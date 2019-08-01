@@ -13,6 +13,7 @@ app.get('/', (req, res) => {
     res.json({"message": "the api works!"});
 })
 
+
 rootFactory(app, DatabaseConnection, "user");
 rootFactory(app, DatabaseConnection, "transaction");
 rootFactory(app, DatabaseConnection, "product");

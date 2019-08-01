@@ -5,7 +5,7 @@ class GenericController {
     }
 
     create (req, res) {
-        return res.status(400).send({
+        return res.status(201).send({
             message: "the api worked!"
         });
     }
@@ -40,7 +40,7 @@ class GenericController {
     }
 
     update (req, res) {
-        return res.status(400).send({
+        return res.status(200).send({
             message: "the api worked!"
         });
     }

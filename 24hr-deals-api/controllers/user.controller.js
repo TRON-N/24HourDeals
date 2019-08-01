@@ -23,7 +23,7 @@ class UserController extends GenericController {
         ,userToSave.UserImage
         ,userToSave.DateCreated]
         ).then((results, fields) => {
-            res.status(200).send({
+            res.status(201).send({
                 data: results
             });
         }).catch(reject=>{

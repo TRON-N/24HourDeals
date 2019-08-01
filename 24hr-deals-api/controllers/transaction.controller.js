@@ -11,7 +11,7 @@ class TransactionController extends GenericController {
         this.DatabaseConnection.doQuery(`INSERT INTO transaction (UserID, DeliveryAddress, TransactionDate) VALUES (?, ?, ?)`,
         [transactionToSave.UserID, transactionToSave.DeliveryAddress, transactionToSave.TransactionDate]
         ).then((results, fields) => {
-            res.status(200).send({
+            res.status(201).send({
                 data: results
             });
         }).catch(reject=>{

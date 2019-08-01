@@ -22,7 +22,7 @@ class ProductController extends GenericController {
         ,productToSave.ProductImage
         ,productToSave.CategoryID]
         ).then((results, fields) => {
-            res.status(200).send({
+            res.status(201).send({
                 data: results
             });
         }).catch(reject=>{

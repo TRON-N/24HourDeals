@@ -5,9 +5,6 @@ import { Link } from "react-router-dom";
 const { Header, Content, Footer } = Layout;
 const { SubMenu } = Menu;
 export default class AppLayout extends Component {
-  componentDidMount() {
-    console.log(this.props.categories);
-  }
   render() {
 
     const categories = this.props.categories.map(cat => {

@@ -5,6 +5,7 @@ import Deals from "./Views/Deals";
 import Cart from "./Views/Cart";
 import DealDetails from "./Views/DealDetails";
 import Profile from "./Components/Profile/Profile";
+import categories from "./Services/Categories"
 
 export default class App extends Component {
   state = {
@@ -97,6 +98,10 @@ export default class App extends Component {
     const cart = this.state.cart.filter(item => item.id !== id);
     this.setState({ cart: cart });
   };
+
+  componentWillMount() {
+    categories.getCategories(() => {});
+  }
 
   render() {
     return (

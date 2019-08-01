@@ -10,6 +10,10 @@ roots = (app, dataBaseConnector) => {
             res.status(500).json({ error: err.toString() });
         }
     });
+
+    app.get(`/getAllDealAndProductInfo`, (req, res) => {
+        controller.getAllProductInfo(req, res);
+    });
 }
 
 module.exports = roots;

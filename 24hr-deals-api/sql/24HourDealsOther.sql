@@ -26,22 +26,21 @@ DELIMITER ;
 
 CREATE VIEW vTransactionHistory AS SELECT `user`.Id As UserId, `transaction`.Id AS TransactionId,
 	`user`.FirstName, `user`.LastName,
-    Product.ProductName, Category.CategoryName,
-    Product.Price, Deal.Discount, calcDiscountedPrice(Product.Price, Deal.Discount) AS TransactionAmount
+    product.ProductName, category.CategoryName,
+    product.Price, deal.Discount, calcDiscountedPrice(product.Price, deal.Discount) AS TransactionAmount
 From transactionDeal
 LEFT JOIN `transaction` ON
 	transactionDeal.TransactionId = `transaction`.Id
 LEFT JOIN Deal On
-	transactionDeal.DealID = Deal.Id
+	transactionDeal.DealID = deal.Id
 Left JOIN `product` ON
-	Deal.ProductId = Product.Id
+	Deal.ProductId = product.Id
 LEFT JOIN `category` ON
-	Category.Id = Product.CategoryId
+	category.Id = product.CategoryId
 LEFT JOIN `user` ON
 	`transaction`.UserID = `user`.Id;
 SELECT * FROM vTransactionHistory;
 
-DROP VIEW vTransactionOverview;
 CREATE VIEW vTransactionOverview AS SELECT
 	TransactionId, UserId, FirstName, LastName,
     SUM(Price) AS TotalPrice,

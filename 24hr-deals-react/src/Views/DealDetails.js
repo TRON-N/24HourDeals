@@ -19,7 +19,14 @@ export default class DealDetails extends Component {
                 />
               }
             >
-              <Meta title="Name" description={<h4>Price <div style={{color: "Red"}}>25% Off</div></h4>} />
+              <Meta
+                title="Name"
+                description={
+                  <h4>
+                    Price <div style={{ color: "Red" }}>25% Off</div>
+                  </h4>
+                }
+              />
             </Card>
           </Col>
           <Col span={18}>
@@ -37,6 +44,19 @@ export default class DealDetails extends Component {
                   <Card>Deal End date</Card>
                 </Col>
                 <Col span={14}>
+                  <Card>{new Date().toString()}</Card>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <Card>
+                    <ul>
+                      <li>test</li>
+                      <li>test</li>
+                      <li>test</li>
+                      <li>test</li>
+                    </ul>
+                  </Card>
                 </Col>
               </Row>
             </Card>

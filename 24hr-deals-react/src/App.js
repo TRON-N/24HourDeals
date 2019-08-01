@@ -4,6 +4,7 @@ import AppLayout from "./Components/Layout/Layout";
 import Deals from "./Views/Deals";
 import Cart from "./Views/Cart";
 import DealDetails from "./Views/DealDetails";
+import Profile from "./Components/Profile/Profile";
 
 export default class App extends Component {
   state = {
@@ -50,7 +51,38 @@ export default class App extends Component {
         price: 100
       }
     ],
-    cart: []
+    cart: [],
+    categories: [
+      { id: 1, name: "Shoes" },
+      { id: 2, name: "Cellphones" },
+      { id: 3, name: "Bags" },
+      { id: 4, name: "Jackets" },
+      { id: 5, name: "Laptops" }
+    ],
+    profile: {
+      id: 1,
+      title: "Ash Ketchum",
+      avatar: "https://pbs.twimg.com/media/CXt6TRMWkAAYtlB.jpg",
+      desc: "Trainer from Pallet Town"
+    },
+    history: [
+      {
+        id: 1,
+        title: "hello",
+        desc: "Worlds apart",
+        avatar:
+          "https://revoguewatch.com/wp-content/uploads/2018/07/2Q4A0750-min.jpg",
+        price: 100
+      },
+      {
+        id: 2,
+        title: "More Shoes",
+        desc: "Distint World",
+        avatar:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdhIVnfYQHFIx5utaNEnDgdtlcvIQRYKufVwiKPx3k3Nff3tt1",
+        price: 100
+      }
+    ]
   };
 
   addToCart = (deal, done, fail) => {
@@ -69,7 +101,7 @@ export default class App extends Component {
   render() {
     return (
       <Router>
-        <AppLayout>
+        <AppLayout categories={this.state.categories}>
           <Route
             path="/"
             exact
@@ -91,6 +123,17 @@ export default class App extends Component {
                 {...props}
                 cart={this.state.cart}
                 removeFromCart={this.removeFromCart}
+              />
+            )}
+          />
+
+          <Route
+            path="/profile"
+            render={props => (
+              <Profile
+                {...props}
+                profile={this.state.profile}
+                history={this.state.history}
               />
             )}
           />

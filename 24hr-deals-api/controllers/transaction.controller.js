@@ -28,8 +28,8 @@ class TransactionController extends GenericController {
         WHERE Id = ?`,
         [transactionToSave.UserID, transactionToSave.DeliveryAddress, transactionToSave.TransactionDate, req.params.id]
         ).then((results, fields) => {
-            res.status(400).send({
-                data: results
+            res.status(200).send({
+                data: "updated"
             });
         }).catch(reject=>{
             res.status(500).json({ error: reject.toString() });
@@ -40,8 +40,8 @@ class TransactionController extends GenericController {
         this.DatabaseConnection.doQuery(`INSERT INTO TransactionDeal (TransactionId, DealId) VALUES (?, ?)`,
         [req.params.transactionId, req.body.dealId],
         ).then((results, fields) => {
-            res.status(400).send({
-                data: results
+            res.status(200).send({
+                data: 'inserted'
             });
         }).catch(reject=>{
             res.status(500).json({ error: reject.toString() });
@@ -53,7 +53,7 @@ class TransactionController extends GenericController {
         this.DatabaseConnection.doQuery(`DELETE FROM TransactionDeal WHERE TransactionId = ? AND DealId = ?`,
         [req.params.transactionId, req.body.dealId]
         ).then((results, fields) => {
-            res.status(400).send({
+            res.status(200).send({
                 data: results
             });
         }).catch(reject=>{

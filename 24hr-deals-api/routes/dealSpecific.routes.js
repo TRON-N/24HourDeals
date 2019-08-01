@@ -4,7 +4,11 @@ roots = (app, dataBaseConnector) => {
     const controller = new DealController(dataBaseConnector);
 
     app.get(`/deal/:dealId/getRelatedProduct`, (req, res) => {
-        controller.getProduct(req, res);
+        try{
+            controller.getProduct(req, res);
+        }catch(err){
+            res.status(500).json({ error: err.toString() });
+        }
     });
 }
 

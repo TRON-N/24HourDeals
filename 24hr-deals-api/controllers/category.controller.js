@@ -11,7 +11,7 @@ class CategoryController extends GenericController {
         this.DatabaseConnection.doQuery(`INSERT INTO category (CategoryName) VALUES (?)`,
         [categoryToSave.CategoryName]
         ).then((results, fields) => {
-            res.status(400).send({
+            res.status(200).send({
                 data: results
             });
         }).catch(reject=>{
@@ -26,7 +26,7 @@ class CategoryController extends GenericController {
         WHERE Id = ?`,
         [categoryToSave.CategoryName,  req.params.id]
         ).then((results, fields) => {
-            res.status(400).send({
+            res.status(200).send({
                 data: results
             });
         }).catch(reject=>{

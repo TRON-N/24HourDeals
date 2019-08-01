@@ -14,6 +14,7 @@ DateCreated datetime(6) not null,
 constraint PK_USER_ID primary key(Id),
 constraint UQ_USER_EMAIL unique(email)
 );
+
 create table `transaction` (
 Id int not null auto_increment,
 UserID int(255) not null,
@@ -25,12 +26,14 @@ references user(Id)
 on delete cascade,
 index Transaction_Index (Id)
 );
+
 create table `category` (
 Id int not null auto_increment,
 CategoryName varchar(30) not null,
 constraint PK_Category_ID primary key(Id),
 index Category_Index (Id)
 );
+
 create table `product` (
 Id int not null auto_increment,
 ProductName varchar(255) not null,
@@ -46,19 +49,22 @@ on delete set null,
 constraint UQ_Pruduct_Name unique(ProductName),
 index Product_Index (Id)
 );
+
 create table `deal` (
 Id int not null auto_increment,
 ProductId int not null,
 DealStartDate datetime not null,
 DealEndDate datetime not null,
-Discount int not null,
+Discount tinyint not null,
 CreationDate datetime not null,
 constraint PK_Deal_ID primary key(Id),
-constraint FK_Product_ID foreign key(ProductID) 
+constraint CHK_Discount CHECK (Discount > 0 AND Discount <= 100),
+constraint FK_Product_ID foreign key(ProductID)
 references product(Id) 
 on delete cascade,
 index Deal_Index (Id)
 );
+
 create table `transactionDeal` (
 DealID int not null,
 TransactionId int not null,

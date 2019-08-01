@@ -49,3 +49,4 @@ CREATE VIEW vTransactionOverview AS SELECT
 FROM vTransactionHistory
 GROUP BY (TransactionId);
 SELECT * FROM vTransactionOverview;
+SELECT * FROM vTransactionHistory WHERE UserId = 1;

@@ -58,7 +58,7 @@ class TransactionController extends GenericController {
         .then((results, fields) => {
             res.status(200).send(results);
         })
-        .catch((results, fields) => {
+        .catch((results) => {
             res.status(500).send({error: 'oof',
         description: results});
         });

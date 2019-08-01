@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8e8580bb-3154-4a90-b218-e0d62a834814",
+		"_postman_id": "68e7d890-0b5c-45bf-81dd-8f41550b9bb7",
 		"name": "24HourDealsCollection",
 		"description": "A collection of requests for the 24 hour deals project api",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -26,6 +26,68 @@
 							]
 						},
 						"description": "Get all users"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transaction History By UserId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/user/2/transactionHistory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"2",
+								"transactionHistory"
+							]
+						},
+						"description": "Get Transaction History"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transaction Overview By UserId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/user/2/transactionOverview",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"2",
+								"transactionOverview"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transaction Overview",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/transactionOverview",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"transactionOverview"
+							]
+						}
 					},
 					"response": []
 				},
@@ -189,11 +251,320 @@
 		},
 		{
 			"name": "Put",
-			"item": []
+			"item": [
+				{
+					"name": "Update Deal By ID",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\t\"ProductId\": 1,\n        \"DealStartDate\": \"2019-08-01\",\n        \"DealEndDate\": \"2019-08-08\",\n        \"Discount\": \"10\",\n        \"CreationDate\": \"2019-08-01\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/deal/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"deal",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Transaction By ID",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t    \"UserID\": 1,\n        \"DeliveryAddress\": \"42, yolo avenue, 1414 Gauteng\",\n        \"TransactionDate\": \"2019-05-02\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/transaction/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"transaction",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User By ID",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\t\"FirstName\": \"Test\",\n        \"LastName\": \"Tester\",\n        \"Email\": \"TestMe@test.co.za\",\n        \"Password\":\"YAYEET\",\n        \"UserImage\":\"https://imageproxy.ifcdn.com/crop:x-20,resize:320x,crop:x800,quality:90x75/images/c0b2ed2e4fad83f5c84375d9a64e474328be8ae6dbf716699a56ed28d714b208_1.jpg\",\n        \"DateCreated\": \"2019-08-01\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Category By ID",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t  \"CategoryName\": \"Fire\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/category/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"category",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product By ID",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t    \"ProductName\": \"YEEZUZ\",\n        \"ProductDescription\": \"Lit\",\n        \"StockQuantity\": 69,\n        \"Price\": 420,\n        \"ProductImage\": \"https://shawetcanada.files.wordpress.com/2019/07/shutterstock_editorial_10010937bx_huge.jpg?quality=80&strip=all&w=720&h=480&crop=1\",\n        \"CategoryID\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/Product/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"Product",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "Post",
-			"item": []
+			"item": [
+				{
+					"name": "Add Category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t  \"CategoryName\": \"Food\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/category",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Transaction By Deal ID",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"dealId\": 2\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/transaction/1/addDeal",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"transaction",
+								"1",
+								"addDeal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Deal",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t    \"ProductId\": 1,\n        \"DealStartDate\": \"2019-08-01\",\n        \"DealEndDate\": \"2019-08-08\",\n        \"Discount\": \"10\",\n        \"CreationDate\": \"2019-08-01\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/deal",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"deal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\t\"FirstName\": \"Test\",\n        \"LastName\": \"Tester\",\n        \"Email\": \"TestMe@test.co.za\",\n        \"Password\":\"YAYEET\",\n        \"UserImage\":\"https://imageproxy.ifcdn.com/crop:x-20,resize:320x,crop:x800,quality:90x75/images/c0b2ed2e4fad83f5c84375d9a64e474328be8ae6dbf716699a56ed28d714b208_1.jpg\",\n        \"DateCreated\": \"2019-08-01\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t    \"ProductName\": \"YEEZUZ\",\n        \"ProductDescription\": \"Lit\",\n        \"StockQuantity\": 69,\n        \"Price\": 420,\n        \"ProductImage\": \"https://shawetcanada.files.wordpress.com/2019/07/shutterstock_editorial_10010937bx_huge.jpg?quality=80&strip=all&w=720&h=480&crop=1\",\n        \"CategoryID\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "Delete",

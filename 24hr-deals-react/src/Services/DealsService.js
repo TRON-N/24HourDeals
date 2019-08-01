@@ -17,7 +17,12 @@ const Deal = {
         axios.get(`${Host}/product/${id}`)
         .then(res => callback(res.data.data))
         .catch(err => console.log(err))
-    }
+    },
+    getDealsByCategory: (catName, callback) => {
+        axios.get(`${Host}/category/${catName}/deals`)
+        .then(res => callback(res.data.data))
+        .catch(err => console.log(err))
+    },
 }
 
 export default Deal;

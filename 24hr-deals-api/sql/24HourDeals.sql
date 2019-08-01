@@ -1,11 +1,12 @@
 create database DealSite;
--- create user 'Group' identified by 'SellOut';
--- grant all privileges on DealSite.* to 'Group';
+create user 'Group' identified by 'SellOut';
+grant all privileges on DealSite.* to 'Group';
 use DealSite;
+
 create table User (
 Id int not null auto_increment,
 FirstName varchar(255) not null,
-Surname varchar(255) not null,
+LastName varchar(255) not null,
 Email varchar(255) not null,
 Password varchar(128) not null,
 dateCreated datetime(6) not null,
@@ -66,7 +67,8 @@ constraint FK_Transaction_ID foreign key(TransactionId) references Transaction(I
 CREATE VIEW vTransaction
 AS SELECT FirstName, LastName, DeliveryAddress, TransactionDate
 FROM User, Transaction
-where User.UserId = Transaction.UserId;
+where User.Id = Transaction.Id;
+
 Insert into user (FirstName, LastName, Email, Password, dateCreated) values ('Mikhail', 'Padayachee', 'pad@test.com', 'testing123', '1997-03-24');
 Insert into user (FirstName, LastName, Email, Password, dateCreated) values ('Leonard', 'Van Gend', 'leo@what.com', 'whatabc', '1998-07-21');
 Insert into user (FirstName, LastName, Email, Password, dateCreated) values ('Vaughan', 'Langman', 'Langman@ay.org', 'whatabc', '1998-07-21');

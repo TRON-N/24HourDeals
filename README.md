@@ -6,3 +6,6 @@ RESTApi located in the *24hr-deals-api* folder
 
 ## Front-end
 Angular app in the *24hr-deals-app* folder
+
+## Front-end
+React app in the *24hr-deals-react* folder

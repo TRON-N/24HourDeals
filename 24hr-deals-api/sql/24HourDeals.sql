@@ -1,11 +1,12 @@
 create database DealSite;
--- create user 'Group' identified by 'SellOut';
--- grant all privileges on DealSite.* to 'Group';
+create user 'Group' identified by 'SellOut';
+grant all privileges on DealSite.* to 'Group';
 use DealSite;
+
 create table User (
 Id int not null auto_increment,
 FirstName varchar(255) not null,
-Surname varchar(255) not null,
+LastName varchar(255) not null,
 Email varchar(255) not null,
 Password varchar(128) not null,
 UserImage varchar(500) not null,
@@ -65,6 +66,8 @@ constraint PK_Deal_ID_Transaction_Id primary key (DealId, TransactionId),
 constraint FK_Deal_ID foreign key(DealId) references Deal(Id) on delete cascade,
 constraint FK_Transaction_ID foreign key(TransactionId) references Transaction(Id) on delete cascade
 );
+
+
 CREATE VIEW vTransaction
 AS SELECT FirstName, LastName, DeliveryAddress, TransactionDate
 FROM User, Transaction

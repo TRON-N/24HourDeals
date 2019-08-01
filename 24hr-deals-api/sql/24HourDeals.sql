@@ -1,6 +1,6 @@
 create database DealSite;
-create user 'Group' identified by 'SellOut';
-grant all privileges on DealSite.* to 'Group';
+CREATE USER 'Group' IDENTIFIED WITH mysql_native_password BY 'SellOut';
+GRANT ALL PRIVILEGES ON DealSite.* to 'Group';
 use DealSite;
 
 create table User (

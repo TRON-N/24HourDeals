@@ -3,6 +3,10 @@ transactionRoots = (app, dataBaseConnector) => {
 
     const controller = new TransactionController(dataBaseConnector);
 
+    app.get(`/user/:userId/transactionHistory`, (req, res) => {
+        overview = controller.getUserTransactionHistory(req.params.userId, res);
+    });
+
     app.post(`/transaction/:transactionId/addDeal`, (req, res) => {
         controller.addDeal(req, res);
     });

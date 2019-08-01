@@ -29,6 +29,18 @@ class CategoryController extends GenericController {
             });
         });
     }
+
+    getDeals(req, res) {
+        this.DatabaseConnection.doQuery(`call getDealInfoByCategory(?)`, [req.params.categoryName]).then((results, fields) => {
+            if (results.length){
+                res.status(200).send({
+                    data: results
+                });
+            }else{
+                res.status(204).send()
+            }
+        });
+    }
 }
 
 module.exports = CategoryController;

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8e8580bb-3154-4a90-b218-e0d62a834814",
+		"_postman_id": "35afe560-371e-4e83-b979-98ad49cafc57",
 		"name": "24HourDealsCollection",
 		"description": "A collection of requests for the 24 hour deals project api",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -26,6 +26,68 @@
 							]
 						},
 						"description": "Get all users"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transaction History By UserId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/user/2/transactionHistory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"2",
+								"transactionHistory"
+							]
+						},
+						"description": "Get Transaction History"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transaction Overview By UserId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/user/2/transactionOverview",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"2",
+								"transactionOverview"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transaction Overview",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/transactionOverview",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"transactionOverview"
+							]
+						}
 					},
 					"response": []
 				},

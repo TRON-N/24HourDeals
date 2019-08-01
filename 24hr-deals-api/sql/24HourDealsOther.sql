@@ -41,8 +41,9 @@ LEFT JOIN `user` ON
 	`transaction`.UserID = `user`.Id;
 SELECT * FROM vTransactionHistory;
 
+DROP VIEW vTransactionOverview;
 CREATE VIEW vTransactionOverview AS SELECT
-	TransactionId, FirstName, LastName,
+	TransactionId, UserId, FirstName, LastName,
     SUM(Price) AS TotalPrice,
     Sum(TransactionAmount) AS TotalTransactionAmount,
     calcTotalSaved(SUM(Price), Sum(TransactionAmount)) AS TotalSaved
@@ -50,3 +51,4 @@ FROM vTransactionHistory
 GROUP BY (TransactionId);
 SELECT * FROM vTransactionOverview;
 SELECT * FROM vTransactionHistory WHERE UserId = 1;
+SELECT * FROM vTransactionOverview;

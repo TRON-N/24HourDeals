@@ -64,10 +64,11 @@ constraint PK_Deal_ID_Transaction_Id primary key (DealId, TransactionId),
 constraint FK_Deal_ID foreign key(DealId) references Deal(Id) on delete cascade,
 constraint FK_Transaction_ID foreign key(TransactionId) references Transaction(Id) on delete cascade
 );
+
 CREATE VIEW vTransaction
 AS SELECT FirstName, LastName, DeliveryAddress, TransactionDate
 FROM User, Transaction
-where User.Id = Transaction.Id;
+where User.Id = Transaction.UserId;
 
 Insert into user (FirstName, LastName, Email, Password, dateCreated) values ('Mikhail', 'Padayachee', 'pad@test.com', 'testing123', '1997-03-24');
 Insert into user (FirstName, LastName, Email, Password, dateCreated) values ('Leonard', 'Van Gend', 'leo@what.com', 'whatabc', '1998-07-21');

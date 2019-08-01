@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Card, Row, Col, Statistic } from "antd";
+import dealService from "../Services/DealsService"
 
 const { Countdown } = Statistic;
 const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2;
@@ -9,6 +10,19 @@ function onFinish() {
 }
 const { Meta } = Card;
 export default class DealDetails extends Component {
+  state = {
+    deal: {},
+    product: {}
+  }
+  componentDidMount() {
+   const dealID = this.props.match.params.id;
+   dealService.getDealById(dealID, (data => {
+     this.setState({deal: data[0]})
+     dealService.getDProductById(data[0].ProductId, (resdata) => {
+       this.setState({product: resdata[0]});       
+     })
+    }))
+  }
   render() {
     return (
       <Card>
@@ -21,15 +35,15 @@ export default class DealDetails extends Component {
                 <img
                   alt="example"
                   style={{ maxHeight: "300px" }}
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdhIVnfYQHFIx5utaNEnDgdtlcvIQRYKufVwiKPx3k3Nff3tt1"
+                  src={this.state.product.ProductImage}
                 />
               }
             >
               <Meta
-                title="Name"
+                title={this.state.product.ProductName}
                 description={
                   <h4>
-                    Price <div style={{ color: "Red" }}>25% Off</div>
+                    {this.state.product.Price} <div style={{ color: "Red" }}>{this.state.deal.Discount}% Off</div>
                   </h4>
                 }
               />
@@ -45,7 +59,7 @@ export default class DealDetails extends Component {
                   <Card>Deal Start date</Card>
                 </Col>
                 <Col span={14}>
-                  <Card>{new Date().toString()}</Card>
+                  <Card>{new Date(this.state.deal.DealStartDate).toString()}</Card>
                 </Col>
               </Row>
               <Row>
@@ -53,17 +67,14 @@ export default class DealDetails extends Component {
                   <Card>Deal End date</Card>
                 </Col>
                 <Col span={14}>
-                  <Card>{ Date(deadline)}</Card>
+                  <Card>{new Date(this.state.deal.DealEndDate).toString()}</Card>
                 </Col>
               </Row>
               <Row>
                 <Col>
                   <Card>
                     <ul>
-                      <li>test</li>
-                      <li>test</li>
-                      <li>test</li>
-                      <li>test</li>
+                      <li>{this.state.product.ProductDescription}</li>
                     </ul>
                   </Card>
                 </Col>

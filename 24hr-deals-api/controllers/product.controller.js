@@ -22,9 +22,11 @@ class ProductController extends GenericController {
         ,productToSave.ProductImage
         ,productToSave.CategoryID]
         ).then((results, fields) => {
-            res.status(400).send({
+            res.status(201).send({
                 data: results
             });
+        }).catch(reject=>{
+            res.status(500).json({ error: reject.toString() });
         });
     }
 
@@ -46,9 +48,11 @@ class ProductController extends GenericController {
         ,productToSave.CategoryID
         ,req.params.id]
         ).then((results, fields) => {
-            res.status(400).send({
+            res.status(200).send({
                 data: results
             });
+        }).catch(reject=>{
+            res.status(500).json({ error: reject.toString() });
         });
     }
 }

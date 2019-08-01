@@ -5,12 +5,23 @@ const DatabaseConnection = require('./database/database.connection');
 const transactionSpecificRoutes = require('./routes/transactionSpecific.routes');
 const dealSpecificRoutes = require('./routes/dealSpecific.routes');
 const categorySpecificRoutes = require('./routes/categorySpecific.routes');
+const cors = require('cors')
 
 const port = 3000;
 
 const app = express();
 
+
 app.use(bodyParser.json());
+app.use(cors());
+
+app.use(function(err, req, res, next) {
+    // our function to catch errors from body-parser
+    if (err instanceof SyntaxError && err.status === 400 && "body" in err) {
+      // do your own thing here 👍
+      res.status(400).send({ code: 400, message: "bad request check input data" });
+    } else next();
+  });
 
 app.get('/', (req, res) => {
     res.json({"message": "the api works!"});

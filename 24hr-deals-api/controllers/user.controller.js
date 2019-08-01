@@ -23,9 +23,11 @@ class UserController extends GenericController {
         ,userToSave.UserImage
         ,userToSave.DateCreated]
         ).then((results, fields) => {
-            res.status(400).send({
+            res.status(201).send({
                 data: results
             });
+        }).catch(reject=>{
+            res.status(500).json({ error: reject.toString() });
         });
     }
 
@@ -47,9 +49,11 @@ class UserController extends GenericController {
         ,userToSave.DateCreated,
         req.params.id]
         ).then((results, fields) => {
-            res.status(400).send({
+            res.status(200).send({
                 data: results
             });
+        }).catch(reject=>{
+            res.status(500).json({ error: reject.toString() });
         });
     }
 }

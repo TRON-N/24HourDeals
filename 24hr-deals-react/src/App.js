@@ -5,7 +5,8 @@ import Deals from "./Views/Deals";
 import Cart from "./Views/Cart";
 import DealDetails from "./Views/DealDetails";
 import Profile from "./Components/Profile/Profile";
-import categories from "./Services/Categories"
+import categories from "./Services/CategoriesService";
+import deal from "./Services/DealsService"
 
 export default class App extends Component {
   state = {
@@ -53,13 +54,7 @@ export default class App extends Component {
       }
     ],
     cart: [],
-    categories: [
-      { id: 1, name: "Shoes" },
-      { id: 2, name: "Cellphones" },
-      { id: 3, name: "Bags" },
-      { id: 4, name: "Jackets" },
-      { id: 5, name: "Laptops" }
-    ],
+    categories: [],
     profile: {
       id: 1,
       title: "Ash Ketchum",
@@ -87,7 +82,7 @@ export default class App extends Component {
   };
 
   addToCart = (deal, done, fail) => {
-    if (this.state.cart.find(item => item.id === deal.id) === undefined) {
+    if (this.state.cart.find(item => item.DealId === deal.DealId) === undefined) {
       const cart = [...this.state.cart, deal];
       this.setState({ cart: cart }, done);
     } else {
@@ -95,12 +90,13 @@ export default class App extends Component {
     }
   };
   removeFromCart = id => {
-    const cart = this.state.cart.filter(item => item.id !== id);
+    const cart = this.state.cart.filter(item => item.DealId !== id);
     this.setState({ cart: cart });
   };
 
   componentWillMount() {
-    categories.getCategories(() => {});
+    categories.getCategories(data => this.setState({ categories: data }));
+    deal.getAllDeals(data => this.setState({deals: data}));
   }
 
   render() {

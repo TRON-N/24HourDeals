@@ -1,12 +1,7 @@
 create database DealSite;
--- create user 'Group' identified by 'SellOut';
--- grant all privileges on DealSite.* to 'Group';
+create user 'Group' identified by 'SellOut';
+grant all privileges on DealSite.* to 'Group';
 use DealSite;
-
-
-drop table TransactionDeal;
-drop table Transaction;
-drop table User;
 
 create table User (
 Id int not null auto_increment,

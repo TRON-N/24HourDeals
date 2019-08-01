@@ -4,6 +4,7 @@ import AppLayout from "./Components/Layout/Layout";
 import Deals from "./Views/Deals";
 import Cart from "./Views/Cart";
 import DealDetails from "./Views/DealDetails";
+import Profile from "./Components/Profile/Profile";
 
 export default class App extends Component {
   state = {
@@ -94,6 +95,9 @@ export default class App extends Component {
               />
             )}
           />
+
+          <Route path="/profile" exact component={Profile} />
+
         </AppLayout>
       </Router>
     );

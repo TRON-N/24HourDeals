@@ -4,10 +4,10 @@ GRANT ALL PRIVILEGES ON DealSite.* to 'Group';
 use DealSite;
 
 create table `user` (
-Id int not null auto_increment,
+Id int UNIQUE not null auto_increment,
 FirstName varchar(255) not null,
 LastName varchar(255) not null,
-Email varchar(255) not null,
+Email varchar(255) UNIQUE not null,
 Password varchar(128) not null,
 UserImage varchar(500) not null,
 DateCreated datetime(6) not null,
@@ -16,7 +16,7 @@ constraint UQ_USER_EMAIL unique(email)
 );
 
 create table `transaction` (
-Id int not null auto_increment,
+Id int UNIQUE not null auto_increment,
 UserID int(255) not null,
 DeliveryAddress varchar(100) not null,
 TransactionDate datetime not null,
@@ -28,14 +28,14 @@ index Transaction_Index (Id)
 );
 
 create table `category` (
-Id int not null auto_increment,
-CategoryName varchar(30) not null,
+Id int UNIQUE not null auto_increment,
+CategoryName varchar(30) UNIQUE not null,
 constraint PK_Category_ID primary key(Id),
 index Category_Index (Id)
 );
 
 create table `product` (
-Id int not null auto_increment,
+Id int UNIQUE not null auto_increment,
 ProductName varchar(255) not null,
 ProductDescription varchar(500) not null,
 StockQuantity int not null,
@@ -51,8 +51,8 @@ index Product_Index (Id)
 );
 
 create table `deal` (
-Id int not null auto_increment,
-ProductId int not null,
+Id int UNIQUE not null auto_increment,
+ProductId int UNIQUE not null,
 DealStartDate datetime not null,
 DealEndDate datetime not null,
 Discount tinyint not null,
@@ -83,7 +83,7 @@ insert into transaction (UserId, DeliveryAddress, TransactionDate) values (2, '4
 insert into transaction (UserId, DeliveryAddress, TransactionDate) values (3, '1 This is fine, flamestead', '2019-03-30');
 insert into transaction (UserId, DeliveryAddress, TransactionDate) values (4, '89 chaos street, tedstown', '2019-03-30');
 insert into category (CategoryName) values ('Electronics');
-insert into category (CategoryName) values ('Appliance ');
+insert into category (CategoryName) values ('Appliance');
 insert into category (CategoryName) values ('Clothing');
 insert into category (CategoryName) values ('Entertainment');
 insert into category (CategoryName) values ('Sport');

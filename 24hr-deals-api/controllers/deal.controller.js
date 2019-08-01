@@ -46,6 +46,10 @@ class DealController extends GenericController {
             });
         });
     }
+
+    getProduct(req, res) {
+        res.status(200).send({message: "get product route works!"});
+    }
 }
 
 module.exports = DealController;

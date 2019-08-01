@@ -54,6 +54,7 @@ export default class App extends Component {
     cart: []
   };
 
+
   addToCart = (deal, done, fail) => {
     if (this.state.cart.find(item => item.id === deal.id) === undefined) {
       const cart = [...this.state.cart, deal];

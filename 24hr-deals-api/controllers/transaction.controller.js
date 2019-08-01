@@ -33,7 +33,7 @@ class TransactionController extends GenericController {
     }
 
     addDeal(req, res) {
-        this.DatabaseConnection.doQuery(`INSERT INTO TransactionDeal (TransactionId, DealId) VALUES (?, ?)`,
+        this.DatabaseConnection.doQuery(`INSERT INTO transactionDeal (TransactionId, DealId) VALUES (?, ?)`,
         [req.params.transactionId, req.body.dealId]
         ).then((results, fields) => {
             res.status(400).send({
@@ -43,7 +43,7 @@ class TransactionController extends GenericController {
     }
 
     removeDeal(req, res) {
-        this.DatabaseConnection.doQuery(`DELETE FROM TransactionDeal WHERE TransactionId = ? AND DealId = ?`,
+        this.DatabaseConnection.doQuery(`DELETE FROM transactionDeal WHERE TransactionId = ? AND DealId = ?`,
         [req.params.transactionId, req.body.dealId]
         ).then((results, fields) => {
             res.status(400).send({

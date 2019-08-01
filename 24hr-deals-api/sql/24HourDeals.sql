@@ -3,18 +3,18 @@ CREATE USER 'Group' IDENTIFIED WITH mysql_native_password BY 'SellOut';
 GRANT ALL PRIVILEGES ON DealSite.* to 'Group';
 use DealSite;
 
-create table User (
+create table `user` (
 Id int not null auto_increment,
 FirstName varchar(255) not null,
 LastName varchar(255) not null,
 Email varchar(255) not null,
 Password varchar(128) not null,
 UserImage varchar(500) not null,
-dateCreated datetime(6) not null,
+DateCreated datetime(6) not null,
 constraint PK_USER_ID primary key(Id),
 constraint UQ_USER_EMAIL unique(email)
 );
-create table Transaction (
+create table `transaction` (
 Id int not null auto_increment,
 UserID int(255) not null,
 DeliveryAddress varchar(100) not null,
@@ -25,13 +25,13 @@ references User(Id)
 on delete cascade,
 index Transaction_Index (Id)
 );
-create table Category (
+create table `category` (
 Id int not null auto_increment,
 CategoryName varchar(30) not null,
 constraint PK_Category_ID primary key(Id),
 index Category_Index (Id)
 );
-create table Product (
+create table `product` (
 Id int not null auto_increment,
 ProductName varchar(255) not null,
 ProductDescription varchar(500) not null,
@@ -46,7 +46,7 @@ on delete set null,
 constraint UQ_Pruduct_Name unique(ProductName),
 index Product_Index (Id)
 );
-create table Deal(
+create table `deal` (
 Id int not null auto_increment,
 ProductId int not null,
 DealStartDate datetime not null,
@@ -59,7 +59,7 @@ references Product(Id)
 on delete cascade,
 index Deal_Index (Id)
 );
-create table TransactionDeal (
+create table `transactionDeal` (
 DealID int not null,
 TransactionId int not null,
 constraint PK_Deal_ID_Transaction_Id primary key (DealId, TransactionId),
@@ -68,10 +68,6 @@ constraint FK_Transaction_ID foreign key(TransactionId) references Transaction(I
 );
 
 
-CREATE VIEW vTransaction
-AS SELECT FirstName, LastName, DeliveryAddress, TransactionDate
-FROM User, Transaction
-where User.UserId = Transaction.UserId;
 Insert into user (FirstName, LastName, Email, Password, UserImage, dateCreated) values ('Mikhail', 'Padayachee', 'pad@test.com', 'testing123', 'image', '1997-03-24');
 Insert into user (FirstName, LastName, Email, Password, UserImage, dateCreated) values ('Leonard', 'Van Gend', 'leo@what.com', 'whatabc', 'image', '1998-07-21');
 Insert into user (FirstName, LastName, Email, Password, UserImage, dateCreated) values ('Vaughan', 'Langman', 'Langman@ay.org', 'whatabc', 'image', '1998-07-21');

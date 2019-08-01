@@ -5,6 +5,7 @@ import Deals from "./Views/Deals";
 import CDeals from "./Views/CDeals";
 import Cart from "./Views/Cart";
 import DealDetails from "./Views/DealDetails";
+import axios from 'axios';
 import Profile from "./Components/Profile/Profile";
 import categories from "./Services/CategoriesService";
 import deal from "./Services/DealsService";
@@ -51,11 +52,57 @@ export default class App extends Component {
       fail();
     }
   };
+
   removeFromCart = id => {
     const cart = this.state.cart.filter(item => item.DealId !== id);
     this.setState({ cart: cart });
   };
 
+  customDelete = async(endpoint) => {
+    axios.delete(`http://localhost:8080/${endpoint}/`, {
+    })
+    .then((deals) => {
+      this.setState({
+        deals
+      })
+    }).catch((e) => {
+      console.log("err", e);
+    });
+  };
+  customGet = async(endpoint, id="") => {// pass null id for get all
+    axios.get(`http://localhost:8080/${endpoint}/${id}`, {
+    })
+    .then((deals) => {
+      this.setState({
+        deals
+      })
+    }).catch((e) => {
+      console.log("err", e);
+    });
+  };
+  customPost = async(endpoint, body = {}) => {
+    axios.post(`http://localhost:8080/${endpoint}/`, 
+    body,{
+    })
+    .then((deals) => {
+      this.setState({
+        deals
+      })
+    }).catch((e) => {
+      console.log("err", e);
+    });
+  };
+  customPut = async(endpoint, id="") => {
+    axios.put(`http://localhost:8080/${endpoint}/${id}`, {
+    })
+    .then((deals) => {
+      this.setState({
+        deals
+      })
+    }).catch((e) => {
+      console.log("err", e);
+    });
+  };
   componentWillMount() {
     categories.getCategories(data => this.setState({ categories: data }));
     deal.getAllDeals(data => this.setState({ deals: data }));

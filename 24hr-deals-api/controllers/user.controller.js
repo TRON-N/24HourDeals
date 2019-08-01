@@ -10,14 +10,14 @@ class UserController extends GenericController {
         const userToSave = new User(req.body);
         this.DatabaseConnection.doQuery(`INSERT INTO user (
             FirstName
-            ,Surname
+            ,LastName
             ,Email
             ,Password
             ,UserImage
             ,DateCreated
         ) VALUES (?, ?, ?, ?, ?, ?)`,
         [userToSave.FirstName
-        ,userToSave.Surname
+        ,userToSave.LastName
         ,userToSave.Email
         ,userToSave.Password
         ,userToSave.UserImage
@@ -33,14 +33,14 @@ class UserController extends GenericController {
         const userToSave = new User(req.body);
         this.DatabaseConnection.doQuery(`UPDATE user SET
         FirstName = ?
-        ,Surname = ?
+        ,LastName = ?
         ,Email = ?
         ,Password = ?
         ,UserImage = ?
         ,DateCreated = ?
         WHERE Id = ?`,
         [userToSave.FirstName
-        ,userToSave.Surname
+        ,userToSave.LastName
         ,userToSave.Email
         ,userToSave.Password
         ,userToSave.UserImage

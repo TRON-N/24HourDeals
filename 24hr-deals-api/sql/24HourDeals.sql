@@ -95,3 +95,20 @@ insert into Product (ProductName, ProductDescription, StockQuantity, Price, Prod
 insert into Product (ProductName, ProductDescription, StockQuantity, Price, ProductImage, CategoryId) values ('Castle Light 6x500','Easy way to make friends','10','120', 'image', 6);
 insert into Product (ProductName, ProductDescription, StockQuantity, Price, ProductImage, CategoryId) values ('Hunters Dry 6x500','Will give you acid reflux','10','150', 'image', 6);
 insert into Product (ProductName, ProductDescription, StockQuantity, Price, ProductImage, CategoryId) values ('Windhoek Lager 6x500','50% Foam','10','160', 'image', 6);
+insert into Deal (ProductId, DealStartDate, DealEndDate, Discount, CreationDate) values ('1','2019-03-24','2019-04-01','10','2019-03-15');
+insert into Deal (ProductId, DealStartDate, DealEndDate, Discount, CreationDate) values ('1','2019-04-01','2019-04-02','15','2019-03-15');
+insert into Deal (ProductId, DealStartDate, DealEndDate, Discount, CreationDate) values ('2','2019-05-06','2019-06-01','20','2019-04-20');
+insert into Deal (ProductId, DealStartDate, DealEndDate, Discount, CreationDate) values ('3','2019-04-01','2019-04-15','15','2019-03-21');
+insert into Deal (ProductId, DealStartDate, DealEndDate, Discount, CreationDate) values ('9','2019-03-24','2019-04-24','50','2019-03-15');
+insert into Deal (ProductId, DealStartDate, DealEndDate, Discount, CreationDate) values ('9','2019-05-20','2019-05-31','50','2019-04-15');
+insert into Deal (ProductId, DealStartDate, DealEndDate, Discount, CreationDate) values ('9','2019-06-16','2019-07-02','50','2019-05-15');
+insert into TransactionDeal (DealID,TransactionId) values ('1','1');
+insert into TransactionDeal (DealID,TransactionId) values ('5','1');
+insert into TransactionDeal (DealID,TransactionId) values ('1','2');
+insert into TransactionDeal (DealID,TransactionId) values ('4','2');
+insert into TransactionDeal (DealID,TransactionId) values ('5','2');
+insert into TransactionDeal (DealID,TransactionId) values ('6','3');
+insert into TransactionDeal (DealID,TransactionId) values ('3','4');
+insert into TransactionDeal (DealID,TransactionId) values ('6','4');
+
+COMMIT;

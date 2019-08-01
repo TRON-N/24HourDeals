@@ -11,16 +11,25 @@ class GenericController {
     }
     findAll (req, res) {
         this.DatabaseConnection.doQuery(`SELECT * FROM ${this.tableName}`, []).then((results, fields) => {
-            res.status(400).send({
-                data: results
-            });
+            console.log(`SELECT * FROM ${this.tableName}`)
+            if (results.length){
+                res.status(200).send({
+                    data: results
+                });
+            }else{
+                res.status(204).send()
+            }
         });
     }
     findOne (req, res) {
         this.DatabaseConnection.doQuery(`SELECT * FROM ${this.tableName} WHERE ID = ?`, [req.params.id]).then((results, fields) => {
-            res.status(400).send({
-                data: results
-            });
+            if (results.length){
+                res.status(200).send({
+                    data: results
+                });
+            }else{
+                res.status(204).send()
+            }
         });
     }
     update (req, res) {
@@ -30,9 +39,11 @@ class GenericController {
     }
     delete (req, res) {
         this.DatabaseConnection.doQuery(`DELETE FROM ${this.tableName} WHERE ID = ?`, [req.params.id]).then((results, fields) => {
-            res.status(400).send({
-                data: results
-            });
+            if (results.AffectedRows){
+                res.status(204).send();
+            }else{
+                res.status(404).send();
+            }
         });
     }
 }

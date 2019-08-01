@@ -65,11 +65,11 @@ constraint FK_Deal_ID foreign key(DealId) references Deal(Id) on delete cascade,
 constraint FK_Transaction_ID foreign key(TransactionId) references Transaction(Id) on delete cascade
 );
 
+
 CREATE VIEW vTransaction
 AS SELECT FirstName, LastName, DeliveryAddress, TransactionDate
 FROM User, Transaction
-where User.Id = Transaction.UserId;
-
+where User.Id = Transaction.UserID;
 Insert into user (FirstName, LastName, Email, Password, dateCreated) values ('Mikhail', 'Padayachee', 'pad@test.com', 'testing123', '1997-03-24');
 Insert into user (FirstName, LastName, Email, Password, dateCreated) values ('Leonard', 'Van Gend', 'leo@what.com', 'whatabc', '1998-07-21');
 Insert into user (FirstName, LastName, Email, Password, dateCreated) values ('Vaughan', 'Langman', 'Langman@ay.org', 'whatabc', '1998-07-21');
@@ -92,4 +92,4 @@ insert into Product (ProductName, ProductDescription, StockQuantity, Price, Cate
 insert into Product (ProductName, ProductDescription, StockQuantity, Price, CategoryId) values ('Cricket Bat','Can be kept near an exit in case of an emergency, swing with caution','10','600', 5);
 insert into Product (ProductName, ProductDescription, StockQuantity, Price, CategoryId) values ('Castle Light 6x500','Easy way to make friends','10','120', 6);
 insert into Product (ProductName, ProductDescription, StockQuantity, Price, CategoryId) values ('Hunters Dry 6x500','Will give you acid reflux','10','150', 6);
-insert into Product (ProductName, ProductDescription, StockQuantity, Price, CategoryId) values ('Windhoek Lager 6x500','50% Foam','10','160', 6);
+insert into Product (ProductName, ProductDescription, StockQuantity, Price, CategoryId) values ('Windhoek Lager 6x500','50% Foam, 100% bloat','10','160', 6);

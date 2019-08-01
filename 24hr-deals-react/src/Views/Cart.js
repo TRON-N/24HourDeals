@@ -19,19 +19,19 @@ export default class Cart extends Component {
           renderItem={item => (
             <List.Item
               actions={[
-                <Button onClick={() => this.removeFromCart(item.id)}>
+                <Button onClick={() => this.removeFromCart(item.DealId)}>
                   Remove
                 </Button>
               ]}
             >
               <List.Item.Meta
-                avatar={<Avatar shape="square" size={64} src={item.avatar} />}
+                avatar={<Avatar shape="square" size={64} src={item.ProductImage} />}
                 title={
-                  <h4 onClick={() => this.showDetails(item.id)}>
-                    {item.title}
+                  <h4 onClick={() => this.showDetails(item.DealId)}>
+                    {item.ProductName}
                   </h4>
                 }
-                description={item.desc}
+                description={item.ProductDescription}
               />
             </List.Item>
           )}

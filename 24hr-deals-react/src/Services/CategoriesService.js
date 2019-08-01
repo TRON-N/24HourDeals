@@ -5,7 +5,7 @@ import axios from 'axios';
 const Category = {
     getCategories: (callback) => {
         axios.get(`${Host}/category`)
-        .then(data => console.log(data))
+        .then(res => callback(res.data.data))
         .catch(err => console.log(err))
     }
 }

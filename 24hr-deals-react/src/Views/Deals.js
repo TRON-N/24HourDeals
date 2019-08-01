@@ -12,7 +12,7 @@ export default class Deals extends Component {
       notification.open({
         message: 'Added To Cart',
         description:
-        `Added ${deal.title} to Cart. You can checkout at anytime`,
+        `Added ${deal.ProductName} to Cart. You can checkout at anytime`,
         onClick: () => {
           console.log('Notification Clicked!');
         },
@@ -32,7 +32,7 @@ export default class Deals extends Component {
 
     const deals = this.props.deals.map(deal => {
       return (
-        <Col span={6} key={deal.id}>
+        <Col span={6} key={deal.DealId}>
             <Card
               
               style={{
@@ -41,8 +41,8 @@ export default class Deals extends Component {
               cover={
                 <img
                   alt="example"
-                  src={deal.avatar}
-                  onClick={() => this.showDetails(deal.id)}
+                  src={deal.ProductImage}
+                  onClick={() => this.showDetails(deal.DealId)}
                 />
               }
               actions={[
@@ -51,8 +51,8 @@ export default class Deals extends Component {
               ]}
             >
               <Meta
-                title={deal.title}
-                description={deal.desc}
+                title={deal.ProductName}
+                description={deal.Price}
               />
             </Card>
           </Col>

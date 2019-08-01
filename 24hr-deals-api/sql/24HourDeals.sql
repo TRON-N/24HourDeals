@@ -1,5 +1,5 @@
 create database DealSite;
-CREATE USER 'Group' IDENTIFIED WITH mysql_native_password BY 'SellOut';
+CREATE USER 'Group' IDENTIFIED WITH mysql_native_password BY 'SellOut@123';
 GRANT ALL PRIVILEGES ON DealSite.* to 'Group';
 use DealSite;
 

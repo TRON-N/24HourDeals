@@ -31,10 +31,10 @@ CREATE VIEW vTransactionHistory AS SELECT `user`.Id As UserId, `transaction`.Id 
 From transactionDeal
 LEFT JOIN `transaction` ON
 	transactionDeal.TransactionId = `transaction`.Id
-LEFT JOIN Deal On
+LEFT JOIN deal On
 	transactionDeal.DealID = deal.Id
 Left JOIN `product` ON
-	Deal.ProductId = product.Id
+	deal.ProductId = product.Id
 LEFT JOIN `category` ON
 	category.Id = product.CategoryId
 LEFT JOIN `user` ON

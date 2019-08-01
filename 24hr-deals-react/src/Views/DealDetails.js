@@ -9,6 +9,9 @@ function onFinish() {
 }
 const { Meta } = Card;
 export default class DealDetails extends Component {
+  componentDidMount() {
+   console.log(this.props.match.params.id);
+  }
   render() {
     return (
       <Card>

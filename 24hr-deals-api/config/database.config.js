@@ -1,7 +1,7 @@
 const mySqlConfig = {
     host: 'localhost',
-    user: 'root',
-    password: 'password',
+    user: 'Group',
+    password: 'SellOut',
     database: 'DealSite',
 }
 

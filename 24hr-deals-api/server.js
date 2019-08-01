@@ -4,6 +4,7 @@ const rootFactory = require('./routes/routeFactory.routes');
 const DatabaseConnection = require('./database/database.connection');
 const transactionSpecificRoutes = require('./routes/transactionSpecific.routes');
 const dealSpecificRoutes = require('./routes/dealSpecific.routes');
+const categorySpecificRoutes = require('./routes/categorySpecific.routes');
 
 const port = 3000;
 
@@ -31,6 +32,7 @@ rootFactory(app, DatabaseConnection, "category");
 rootFactory(app, DatabaseConnection, "deal");
 transactionSpecificRoutes(app, DatabaseConnection);
 dealSpecificRoutes(app, DatabaseConnection);
+categorySpecificRoutes(app, DatabaseConnection);
 
 
 app.listen(port, () => {

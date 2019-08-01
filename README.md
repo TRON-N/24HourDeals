@@ -5,7 +5,6 @@ Deal site: An eCommerce site that has time limited deals. It needs to have categ
 RESTApi located in the *24hr-deals-api* folder
 
 ## Front-end
-Angular app in the *24hr-deals-app* folder
+~~Angular app in the *24hr-deals-app* folder~~
 
-## Front-end
 React app in the *24hr-deals-react* folder

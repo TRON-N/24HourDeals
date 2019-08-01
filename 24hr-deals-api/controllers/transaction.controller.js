@@ -11,7 +11,7 @@ class TransactionController extends GenericController {
         this.DatabaseConnection.doQuery(`INSERT INTO transaction (UserID, DeliveryAddress, TransactionDate) VALUES (?, ?, ?)`,
         [transactionToSave.UserID, transactionToSave.DeliveryAddress, transactionToSave.TransactionDate]
         ).then((results, fields) => {
-            res.status(400).send({
+            res.status(200).send({
                 data: results
             });
         }).catch(reject=>{
@@ -50,7 +50,7 @@ class TransactionController extends GenericController {
     }
 
     removeDeal(req, res) {
-        this.DatabaseConnection.doQuery(`DELETE FROM TransactionDeal WHERE TransactionId = ? AND DealId = ?`,
+        this.DatabaseConnection.doQuery(`DELETE FROM transactionDeal WHERE TransactionId = ? AND DealId = ?`,
         [req.params.transactionId, req.body.dealId]
         ).then((results, fields) => {
             res.status(200).send({
@@ -59,6 +59,45 @@ class TransactionController extends GenericController {
         }).catch(reject=>{
             res.status(500).json({ error: reject.toString() });
         });
+    }
+
+    getUserTransactionHistory(userId, res) {
+        let data;
+        this.DatabaseConnection.doQuery(`SELECT * FROM vTransactionHistory WHERE UserId = ?`, [userId])
+        .then((results, fields) => {
+            res.status(200).send(results);
+        })
+        .catch((results) => {
+            res.status(500).send({error: 'oof',
+        description: results});
+        });
+        return data;
+    }
+
+    getTransactionOveriew(res) {
+        let data;
+        this.DatabaseConnection.doQuery(`SELECT * FROM vTransactionOverview`)
+        .then((results, fields) => {
+            res.status(200).send(results);
+        })
+        .catch((results) => {
+            res.status(500).send({error: 'oof',
+        description: results});
+        });
+        return data;
+    }
+
+    getUserTransactionOveriew(userId, res) {
+        let data;
+        this.DatabaseConnection.doQuery(`SELECT * FROM vTransactionOverview WHERE UserId = ?`, [userId])
+        .then((results, fields) => {
+            res.status(200).send(results);
+        })
+        .catch((results) => {
+            res.status(500).send({error: 'oof',
+        description: results});
+        });
+        return data;
     }
 }
 

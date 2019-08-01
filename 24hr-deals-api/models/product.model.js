@@ -4,6 +4,7 @@ module.exports = class {
         this.ProductDescription = data.ProductDescription;
         this.StockQuantity = data.StockQuantity;
         this.Price = data.Price;
+        this.ProductImage = data.ProductImage;
         this.CategoryID = data.CategoryID;
     }
 }

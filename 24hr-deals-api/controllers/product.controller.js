@@ -13,11 +13,13 @@ class ProductController extends GenericController {
             ,ProductDescription
             ,StockQuantity
             ,Price
-            ,CategoryID) VALUES (?, ?, ?, ?, ?)`,
+            ,ProductImage
+            ,CategoryID) VALUES (?, ?, ?, ?, ?, ?)`,
         [productToSave.ProductName
         ,productToSave.ProductDescription
         ,productToSave.StockQuantity
         ,productToSave.Price
+        ,productToSave.ProductImage
         ,productToSave.CategoryID]
         ).then((results, fields) => {
             res.status(400).send({
@@ -33,12 +35,14 @@ class ProductController extends GenericController {
         ,ProductDescription = ?
         ,StockQuantity = ?
         ,Price = ?
+        ,ProductImage = ?
         ,CategoryID = ?
         WHERE Id = ?`,
         [productToSave.ProductName
         ,productToSave.ProductDescription
         ,productToSave.StockQuantity
         ,productToSave.Price
+        ,productToSave.ProductImage
         ,productToSave.CategoryID
         ,req.params.id]
         ).then((results, fields) => {

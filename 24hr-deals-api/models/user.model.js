@@ -4,6 +4,7 @@ module.exports = class User {
         this.Surname = data.Surname;
         this.Email = data.Email;
         this.Password = data.Password;
+        this.UserImage = data.UserImage;
         this.DateCreated = data.DateCreated;
     }
 }

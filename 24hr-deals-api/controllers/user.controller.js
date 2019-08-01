@@ -13,12 +13,14 @@ class UserController extends GenericController {
             ,Surname
             ,Email
             ,Password
+            ,UserImage
             ,DateCreated
-        ) VALUES (?, ?, ?, ?, ?)`,
+        ) VALUES (?, ?, ?, ?, ?, ?)`,
         [userToSave.FirstName
         ,userToSave.Surname
         ,userToSave.Email
         ,userToSave.Password
+        ,userToSave.UserImage
         ,userToSave.DateCreated]
         ).then((results, fields) => {
             res.status(400).send({
@@ -34,12 +36,14 @@ class UserController extends GenericController {
         ,Surname = ?
         ,Email = ?
         ,Password = ?
+        ,UserImage = ?
         ,DateCreated = ?
         WHERE Id = ?`,
         [userToSave.FirstName
         ,userToSave.Surname
         ,userToSave.Email
         ,userToSave.Password
+        ,userToSave.UserImage
         ,userToSave.DateCreated,
         req.params.id]
         ).then((results, fields) => {

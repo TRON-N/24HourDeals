@@ -50,7 +50,24 @@ export default class App extends Component {
         price: 100
       }
     ],
-    cart: []
+    cart: [],
+    categories: [
+      { id: 1,
+        name: "Shoes"
+      },
+      { id: 2,
+        name: "Cellphones"
+      },
+      { id: 3,
+        name: "Bags"
+      },
+      { id: 4,
+        name: "Jackets"
+      },
+      { id: 5,
+        name: "Laptops"
+      }
+    ]
   };
 
   addToCart = (deal, done, fail) => {
@@ -69,7 +86,7 @@ export default class App extends Component {
   render() {
     return (
       <Router>
-        <AppLayout>
+        <AppLayout categories={this.state.categories}>
           <Route
             path="/"
             exact

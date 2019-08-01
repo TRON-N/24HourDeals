@@ -44,14 +44,12 @@ export default class AppLayout extends Component {
             </SubMenu>
             <Menu.Item key="2">
               <Link to="/cart">
-                {" "}
                 <Icon type="shopping-cart" />
                 Cart
               </Link>
             </Menu.Item>
             <Menu.Item key="3">
-              <Link to="/">
-                {" "}
+              <Link to="/profile">
                 <Icon type="user" />
                 My Profile
               </Link>

@@ -4,10 +4,10 @@ GRANT ALL PRIVILEGES ON DealSite.* to 'Group';
 use DealSite;
 
 create table `user` (
-Id int not null auto_increment,
+Id int UNIQUE not null auto_increment,
 FirstName varchar(255) not null,
 LastName varchar(255) not null,
-Email varchar(255) not null,
+Email varchar(255) UNIQUE not null,
 Password varchar(128) not null,
 UserImage varchar(500) not null,
 DateCreated datetime(6) not null,
@@ -16,7 +16,7 @@ constraint UQ_USER_EMAIL unique(email)
 );
 
 create table `transaction` (
-Id int not null auto_increment,
+Id int UNIQUE not null auto_increment,
 UserID int(255) not null,
 DeliveryAddress varchar(100) not null,
 TransactionDate datetime not null,
@@ -28,14 +28,14 @@ index Transaction_Index (Id)
 );
 
 create table `category` (
-Id int not null auto_increment,
-CategoryName varchar(30) not null,
+Id int UNIQUE not null auto_increment,
+CategoryName varchar(30) UNIQUE not null,
 constraint PK_Category_ID primary key(Id),
 index Category_Index (Id)
 );
 
 create table `product` (
-Id int not null auto_increment,
+Id int UNIQUE not null auto_increment,
 ProductName varchar(255) not null,
 ProductDescription varchar(500) not null,
 StockQuantity int not null,
@@ -51,8 +51,8 @@ index Product_Index (Id)
 );
 
 create table `deal` (
-Id int not null auto_increment,
-ProductId int not null,
+Id int UNIQUE not null auto_increment,
+ProductId int UNIQUE not null,
 DealStartDate datetime not null,
 DealEndDate datetime not null,
 Discount tinyint not null,
@@ -83,11 +83,11 @@ insert into transaction (UserId, DeliveryAddress, TransactionDate) values (2, '4
 insert into transaction (UserId, DeliveryAddress, TransactionDate) values (3, '1 This is fine, flamestead', '2019-03-30');
 insert into transaction (UserId, DeliveryAddress, TransactionDate) values (4, '89 chaos street, tedstown', '2019-03-30');
 insert into category (CategoryName) values ('Electronics');
-insert into category (CategoryName) values ('Appliance ');
+insert into category (CategoryName) values ('Appliance');
 insert into category (CategoryName) values ('Clothing');
 insert into category (CategoryName) values ('Entertainment');
 insert into category (CategoryName) values ('Sport');
-insert into category (CategoryName) values ('Beverages & Liquor');
+insert into category (CategoryName) values ('Beverages&Liquor');
 insert into product (ProductName, ProductDescription, StockQuantity, Price, ProductImage, CategoryId) values ('Headset','Electronic device for relaying sound to your ears only','10','750', 'https://pdpcom.scdn1.secure.raxcdn.com/media/catalog/product/cache/1/image/c96a280f94e22e3ee3823dd0a1a87606/0/1/01_051-049_hero.png', 1);
 insert into product (ProductName, ProductDescription, StockQuantity, Price, ProductImage, CategoryId) values ('Samsung Galaxy S9','Like the iPhone but slightly cheaper and better','50','99999999', 'https://i.gadgets360cdn.com/products/large/1519585124_635_samsung_galaxy_s9_blue.jpg', 1);
 insert into product (ProductName, ProductDescription, StockQuantity, Price, ProductImage, CategoryId) values ('Huawei P20','A decently priced phone','100','8000', 'https://image2.geekbuying.com/ggo_pic/2018-04-09/HUAWEI-P20-Pro-6-1-Inch-6GB-64GB-Smartphone-Cherry-Pink-Gold-611521-.jpg', 1);
@@ -104,13 +104,13 @@ insert into product (ProductName, ProductDescription, StockQuantity, Price, Prod
 insert into product (ProductName, ProductDescription, StockQuantity, Price, ProductImage, CategoryId) values ('Castle Light 6x500','Easy way to make friends','10','120', 'https://lippys.co.za/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/C/A/CASTLELITE_1.png', 6);
 insert into product (ProductName, ProductDescription, StockQuantity, Price, ProductImage, CategoryId) values ('Hunters Dry 6x500','Will give you acid reflux','10','150', 'https://media.takealot.com/covers_tsins/44172117/41405471_11-pdpxl.jpg', 6);
 insert into product (ProductName, ProductDescription, StockQuantity, Price, ProductImage, CategoryId) values ('Windhoek Lager 6x500','50% Foam','10','160', 'https://www.oaksncorks.com/wp-content/uploads/windhoek-lager.png', 6);
-insert into deal (ProductId, DealStartDate, DealEndDate, Discount, CreationDate) values ('1','2019-08-24','2019-09-01','10','2019-03-15');
+insert into deal (ProductId, DealStartDate, DealEndDate, Discount, CreationDate) values ('4','2019-08-24','2019-09-01','10','2019-03-15');
 insert into deal (ProductId, DealStartDate, DealEndDate, Discount, CreationDate) values ('1','2019-08-01','2019-09-02','15','2019-03-15');
 insert into deal (ProductId, DealStartDate, DealEndDate, Discount, CreationDate) values ('2','2019-08-06','2019-09-01','20','2019-04-20');
 insert into deal (ProductId, DealStartDate, DealEndDate, Discount, CreationDate) values ('3','2019-08-01','2019-08-15','15','2019-03-21');
-insert into deal (ProductId, DealStartDate, DealEndDate, Discount, CreationDate) values ('9','2019-08-24','2019-09-24','50','2019-03-15');
+insert into deal (ProductId, DealStartDate, DealEndDate, Discount, CreationDate) values ('7','2019-08-24','2019-09-24','50','2019-03-15');
 insert into deal (ProductId, DealStartDate, DealEndDate, Discount, CreationDate) values ('9','2019-08-20','2019-08-31','50','2019-04-15');
-insert into deal (ProductId, DealStartDate, DealEndDate, Discount, CreationDate) values ('9','2019-08-16','2019-09-02','50','2019-05-15');
+insert into deal (ProductId, DealStartDate, DealEndDate, Discount, CreationDate) values ('5','2019-08-16','2019-09-02','50','2019-05-15');
 insert into transactionDeal (DealID,TransactionId) values ('1','1');
 insert into transactionDeal (DealID,TransactionId) values ('5','1');
 insert into transactionDeal (DealID,TransactionId) values ('1','2');

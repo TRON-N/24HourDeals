@@ -5,7 +5,7 @@ import axios from 'axios';
 const Profile = {
     getTransactByUser: (id, callback) => {
         axios.get(`${Host}/user/${id}/transactionHistory`)
-        .then(res => callback(res.data.data))
+        .then(res => callback(res.data))
         .catch(err => console.log(err))
     },
     makeTransaction: () => {},

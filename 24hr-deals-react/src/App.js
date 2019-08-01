@@ -8,6 +8,8 @@ import DealDetails from "./Views/DealDetails";
 import Profile from "./Views/Profile";
 import categories from "./Services/CategoriesService";
 import deal from "./Services/DealsService";
+import profileService from "./Services/ProfileService"
+ 
 
 export default class App extends Component {
   state = {
@@ -15,12 +17,7 @@ export default class App extends Component {
     deals: [],
     cart: [],
     categories: [],
-    profile: {
-      id: 1,
-      title: "Ash Ketchum",
-      avatar: "https://pbs.twimg.com/media/CXt6TRMWkAAYtlB.jpg",
-      desc: "Trainer from Pallet Town"
-    },
+    profile: {},
     history: [
       {
         id: 1,
@@ -57,8 +54,11 @@ export default class App extends Component {
   };
 
   componentWillMount() {
+    const USER_ID = 2
     categories.getCategories(data => this.setState({ categories: data }));
     deal.getAllDeals(data => this.setState({ deals: data }));
+    profileService.getUserProfile(USER_ID, (data) => this.setState({profile: data[0]}));
+    profileService.getTransactByUser(USER_ID, (data => console.log(data)));
   }
 
   render() {

@@ -4,7 +4,12 @@ import { Card, List, Avatar, Button } from "antd";
 export default class Cart extends Component {
   removeFromCart = id => {
     this.props.removeFromCart(id);
-  };
+  }
+
+  showDetails = (id) => {
+    this.props.history.push(`/${id}`)
+  }
+  
   render() {
     return (
       <Card>
@@ -21,7 +26,7 @@ export default class Cart extends Component {
             >
               <List.Item.Meta
                 avatar={<Avatar shape="square" size={64} src={item.avatar} />}
-                title={item.title}
+                title={<h4 onClick={() => this.showDetails(item.id)}>item.title</h4>}
                 description={item.desc}
               />
             </List.Item>

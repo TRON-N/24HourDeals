@@ -2,57 +2,17 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import AppLayout from "./Components/Layout/Layout";
 import Deals from "./Views/Deals";
+import CDeals from "./Views/CDeals";
 import Cart from "./Views/Cart";
 import DealDetails from "./Views/DealDetails";
 import Profile from "./Components/Profile/Profile";
 import categories from "./Services/CategoriesService";
-import deal from "./Services/DealsService"
+import deal from "./Services/DealsService";
 
 export default class App extends Component {
   state = {
     currentRoute: 0,
-    deals: [
-      {
-        id: 1,
-        title: "hello",
-        desc: "Worlds apart",
-        avatar:
-          "https://revoguewatch.com/wp-content/uploads/2018/07/2Q4A0750-min.jpg",
-        price: 100
-      },
-      {
-        id: 2,
-        title: "More Shoes",
-        desc: "Distint World",
-        avatar:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdhIVnfYQHFIx5utaNEnDgdtlcvIQRYKufVwiKPx3k3Nff3tt1",
-        price: 100
-      },
-      {
-        id: 3,
-        title: "test",
-        desc: "Fisher man's greatest love",
-        avatar:
-          "https://revoguewatch.com/wp-content/uploads/2018/07/2Q4A0750-min.jpg",
-        price: 100
-      },
-      {
-        id: 4,
-        title: "Man Purse",
-        desc: "Fisher man's greatest love",
-        avatar:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSphUAAQgwd9bZCexXJC6YHJXDTO_LQHK9n2htgt-RXl_NB_Jsn",
-        price: 100
-      },
-      {
-        id: 5,
-        title: "Burger",
-        desc: "Best in the city",
-        avatar:
-          "https://amp.businessinsider.com/images/5c420211b492cb5cdb1d88d4-750-501.jpg",
-        price: 100
-      }
-    ],
+    deals: [],
     cart: [],
     categories: [],
     profile: {
@@ -82,7 +42,9 @@ export default class App extends Component {
   };
 
   addToCart = (deal, done, fail) => {
-    if (this.state.cart.find(item => item.DealId === deal.DealId) === undefined) {
+    if (
+      this.state.cart.find(item => item.DealId === deal.DealId) === undefined
+    ) {
       const cart = [...this.state.cart, deal];
       this.setState({ cart: cart }, done);
     } else {
@@ -96,7 +58,7 @@ export default class App extends Component {
 
   componentWillMount() {
     categories.getCategories(data => this.setState({ categories: data }));
-    deal.getAllDeals(data => this.setState({deals: data}));
+    deal.getAllDeals(data => this.setState({ deals: data }));
   }
 
   render() {
@@ -110,6 +72,15 @@ export default class App extends Component {
               <Deals
                 {...props}
                 deals={this.state.deals}
+                addToCart={this.addToCart}
+              />
+            )}
+          />
+          <Route
+            path="/category/:name"
+            render={props => (
+              <CDeals
+                {...props}
                 addToCart={this.addToCart}
               />
             )}

@@ -26,7 +26,6 @@ export default class Deals extends Component {
   shareClick = () => {
     message.error("Share functionality not yet available")
   }
-  
 
   render() {
 

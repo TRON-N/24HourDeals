@@ -9,7 +9,7 @@ export default class AppLayout extends Component {
 
     const categories = this.props.categories.map(cat => {
       return (
-        <Menu.Item key={`cat:${cat.Id}`}><Link to="/">{cat.CategoryName}</Link></Menu.Item>
+        <Menu.Item key={`cat:${cat.Id}`}><Link to={'/category/' + cat.CategoryName}>{cat.CategoryName}</Link></Menu.Item>
       );
     })
 

@@ -20,7 +20,7 @@ export default class Profile extends Component {
                 />
               }
             >
-              <Meta title={this.props.profile.FirstName} />
+              <Meta title={<div>{this.props.profile.FirstName} {this.props.profile.LastName}</div>} />
             </Card>
           </Col>
           <Col span={18}>

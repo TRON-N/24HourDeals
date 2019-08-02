@@ -87,7 +87,7 @@ insert into category (CategoryName) values ('Appliance');
 insert into category (CategoryName) values ('Clothing');
 insert into category (CategoryName) values ('Entertainment');
 insert into category (CategoryName) values ('Sport');
-insert into category (CategoryName) values ('Beverages & Liquor');
+insert into category (CategoryName) values ('Beverages&Liquor');
 insert into product (ProductName, ProductDescription, StockQuantity, Price, ProductImage, CategoryId) values ('Headset','Electronic device for relaying sound to your ears only','10','750', 'https://m.media-amazon.com/images/S/aplus-media/vc/a9887957-c7e8-415f-8be9-8b74cedcc0bf._CR0,0,800,600_PT0_SX800__.jpg', 1);
 insert into product (ProductName, ProductDescription, StockQuantity, Price, ProductImage, CategoryId) values ('Samsung Galaxy S9','Like the iPhone but slightly cheaper and better','50','9999999', 'https://trademe.tmcdn.co.nz/photoserver/full/954520413.jpg', 1);
 insert into product (ProductName, ProductDescription, StockQuantity, Price, ProductImage, CategoryId) values ('Huawei P20','A decently priced phone','100','8000', 'https://www.komplett.no/img/p/800/cd61c7da-8e1c-f8c8-dd22-8f9ca1de5f33.jpg', 1);

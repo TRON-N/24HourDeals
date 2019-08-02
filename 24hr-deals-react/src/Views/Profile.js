@@ -16,11 +16,11 @@ export default class Profile extends Component {
                 <img
                   alt="example"
                   style={{ maxHeight: "300px" }}
-                  src={this.props.profile.avatar}
+                  src={this.props.profile.UserImage}
                 />
               }
             >
-              <Meta title={this.props.profile.title} />
+              <Meta title={this.props.profile.FirstName} />
             </Card>
           </Col>
           <Col span={18}>
@@ -39,14 +39,14 @@ export default class Profile extends Component {
                   >
                     <List.Item.Meta
                       avatar={
-                        <Avatar shape="square" size={64} src={item.avatar} />
+                        <Avatar shape="square" size={64} src={item.ProductImage} />
                       }
                       title={
                         <h4>
-                          {item.title}
+                          {item.ProductName}
                         </h4>
                       }
-                      description={item.desc}
+                      description={item.Electronics}
                     />
                   </List.Item>
                 )}

@@ -58,7 +58,7 @@ export default class App extends Component {
     categories.getCategories(data => this.setState({ categories: data }));
     deal.getAllDeals(data => this.setState({ deals: data }));
     profileService.getUserProfile(USER_ID, (data) => this.setState({profile: data[0]}));
-    profileService.getTransactByUser(USER_ID, (data => console.log(data)));
+    profileService.getTransactByUser(USER_ID, (data => this.setState({history: data})));
   }
 
   render() {

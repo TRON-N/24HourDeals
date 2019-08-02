@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, List, Avatar, Button, Row, Col } from "antd";
+import { Card, List, Avatar, Row, Col } from "antd";
 
 const { Meta } = Card;
 
@@ -31,11 +31,6 @@ export default class Profile extends Component {
                 dataSource={this.props.history}
                 renderItem={item => (
                   <List.Item
-                    actions={[
-                      <Button>
-                        Remove
-                      </Button>
-                    ]}
                   >
                     <List.Item.Meta
                       avatar={
@@ -46,7 +41,7 @@ export default class Profile extends Component {
                           {item.ProductName}
                         </h4>
                       }
-                      description={item.Electronics}
+                      description={<div>Item in {item.CategoryName}</div>}
                     />
                   </List.Item>
                 )}

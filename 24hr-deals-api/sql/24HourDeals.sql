@@ -75,7 +75,7 @@ constraint FK_Transaction_ID foreign key(TransactionId) references transaction(I
 
 
 Insert into user (FirstName, LastName, Email, Password, UserImage, dateCreated) values ('Mikhail', 'Padayachee', 'pad@test.com', 'testing123', 'image', '1997-03-24');
-Insert into user (FirstName, LastName, Email, Password, UserImage, dateCreated) values ('Leonard', 'Van Gend', 'leo@what.com', 'whatabc', 'image', '1998-07-21');
+Insert into user (FirstName, LastName, Email, Password, UserImage, dateCreated) values ('Ash', 'Ketchum', 'leo@what.com', 'whatabc', 'https://pbs.twimg.com/media/CXt6TRMWkAAYtlB.jpg', '1998-07-21');
 Insert into user (FirstName, LastName, Email, Password, UserImage, dateCreated) values ('Vaughan', 'Langman', 'Langman@ay.org', 'whatabc', 'image', '1998-07-21');
 Insert into user (FirstName, LastName, Email, Password, UserImage, dateCreated) values ('Robert', 'Basson', 'Rob123@Bass.co.za', 'whatabc', 'image', '1998-07-21');
 insert into transaction (UserId, DeliveryAddress, TransactionDate) values (1, '2 hell rd, hellsberg', '2019-07-30');

@@ -9,6 +9,9 @@ export default class Cart extends Component {
   showDetails = id => {
     this.props.history.push(`/${id}`);
   };
+  checkOut = () => {
+    this.props.checkoutCart();
+  }
 
   render() {
     return (
@@ -36,6 +39,7 @@ export default class Cart extends Component {
             </List.Item>
           )}
         />
+        <Button onClick={() => this.checkOut()}>Checkout</Button>
       </Card>
     );
   }

@@ -52,6 +52,9 @@ export default class App extends Component {
     const cart = this.state.cart.filter(item => item.DealId !== id);
     this.setState({ cart: cart });
   };
+  checkoutCart = () => {
+    this.setState({ cart: [] }); 
+  }
 
   componentWillMount() {
     const USER_ID = 2
@@ -96,6 +99,7 @@ export default class App extends Component {
                 {...props}
                 cart={this.state.cart}
                 removeFromCart={this.removeFromCart}
+                checkoutCart={this.checkoutCart}
               />
             )}
           />

@@ -37,9 +37,9 @@ export default class Profile extends Component {
                         <Avatar shape="square" size={64} src={item.ProductImage} />
                       }
                       title={
-                        <h4>
+                        <div>
                           {item.ProductName}
-                        </h4>
+                        </div>
                       }
                       description={<div>Item in {item.CategoryName}</div>}
                     />
